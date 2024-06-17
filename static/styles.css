@@ -1,0 +1,82 @@
+/* Reset and general styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    width: 70%;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-search {
+    padding: 12px 20px;
+    background-color: #d9534f;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    padding-left:30px ;
+}
+
+.btn-search:hover {
+    background-color: #c9302c;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.recommendations-list {
+    list-style-type: none;
+    margin-top: 20px;
+    padding-left: 0; /
+}
+
+.recommendations-list li {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    text-align: left; 
+}
+

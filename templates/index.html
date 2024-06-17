@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+        <div class="container">
+            <h2 class="hero-title">Discover Your Next Favorite Movie</h2>
+            <form action="/recommend" method="POST" class="search-form">
+                <input type="text" id="movie_name" name="movie_name" placeholder="Enter your favorite movie..." required>
+                <button type="submit" class="btn-search">Get Recommendations</button>
+            </form>
+
+            {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        {% if recommendations %}
+            <h2>Movies suggested for you:</h2>
+            <ul class="recommendations-list">
+                {% for rec in recommendations %}
+                    <li>{{ rec[0] }}. {{ rec[1] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+ 
+
+</body>
+
+</html>
