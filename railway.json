@@ -4,7 +4,7 @@
         "builder": "NIXPACKS"
     },
     "deploy": {
-        "startCommand": "gunicorn main:app -w 3 --worker-class uvicorn.workers.UvicornWorker --timeout 6000",
+        "startCommand": "gunicorn main:app -w 2 --worker-class uvicorn.workers.UvicornWorker --timeout 12000 --limit-request-fields 32000 --limit-request-line 8190",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }
