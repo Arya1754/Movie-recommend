@@ -14,22 +14,14 @@ selected = ['genres', 'keywords', 'popularity', 'tagline', 'cast', 'director']
 for feature in selected:
     df[feature] = df[feature].fillna('')
 
-# Combine selected features into a single string
-combined = (df['genres'].astype(str) + ' ' +
-            df['keywords'].astype(str) + ' ' +
-            df['popularity'].astype(str) + ' ' +
-            df['tagline'].astype(str) + ' ' +
-            df['cast'].astype(str) + ' ' +
-            df['director'].astype(str))
+df['combined'] = df[selected].apply(lambda x: ' '.join(x.astype(str)), axis=1)
 
-# Create a TF-IDF Vectorizer and compute the feature vectors
 vectorizer = TfidfVectorizer()
-feature_vector = vectorizer.fit_transform(combined)
+feature_vector = vectorizer.fit_transform(df['combined'])
 
-# Compute the cosine similarity matrix
 similarity = cosine_similarity(feature_vector)
 
-# Initialize Flask app
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -62,6 +54,5 @@ def recommend_movies():
     return render_template('index.html', recommendations=recommendations, movie_name=movie_name)
 
 if __name__ == '__main__':
-    #port = int(os.environ.get('PORT', 5000))  # Default to 5000 if PORT is not set
-    app.run(debug=False)  # Set debug=False for production
+    app.run(debug=False)  
 

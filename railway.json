@@ -7,5 +7,11 @@
         "startCommand": "gunicorn main:app -w 2 --worker-class uvicorn.workers.UvicornWorker --timeout 120 --limit-request-fields 32000 --limit-request-line 8190",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
+    },
+    "resources": {
+        "limits": {
+            "memory": "2048Mi",  
+            "cpu": "1000m"       
+        }
     }
 }
