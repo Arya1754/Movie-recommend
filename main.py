@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, jsonify, render_template
 
 # Load your data
-df = pd.read_csv('movies_new.csv')
+df = pd.read_csv('movies_new.csv').head(500)
 
 # Fill missing values in selected columns
 selected = ['genres', 'keywords', 'popularity', 'tagline', 'cast', 'director']
